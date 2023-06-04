@@ -1,13 +1,19 @@
 package DiplomaAccount
 
-import zio.*
-import zio.ZIOAppDefault
-import zio.Console
+import zio._
+import zio.ZIOApp
 
-import java.io.IOException
+object BootApp extends ZIOApp:
+  override type Environment = ZEnv
 
-object BootApp extends ZIOAppDefault {
-  def run =
+  override val tag: EnvironmentTag[Environment] = EnvironmentTag[Environment]
+
+  override def layer: ZLayer[ZIOAppArgs, Throwable, Environment] =
+    ZLayer.make[ZEnv](
+      ZEnv.live
+    )
+  override def run: ZIO[Console, java.io.IOException, Unit] = {
     Console.printLine("Hello World")
+  }
 
-}
+

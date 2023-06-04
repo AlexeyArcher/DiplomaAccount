@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaCompilerConfiguration">
-    <profile name="sbt 1" modules="DiplomaAccount" />
+    <profile name="sbt 1" modules="DiplomaAccount">
+      <parameters>
+        <parameter value="-Ykind-projector:underscores" />
+      </parameters>
+    </profile>
   </component>
 </project>
